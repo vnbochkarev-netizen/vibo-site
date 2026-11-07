@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="768"
+  height="768"
+  viewBox="0 0 768 768"
+  fill="none"
+  role="img"
+  aria-labelledby="vibo-title vibo-description"
+>
+  <title id="vibo-title">ViBo — Modular Agent Network</title>
+  <desc id="vibo-description">
+    Three modular elements form a V: cobalt blue for the agent,
+    action orange for the skill, and graphite for the completed result.
+  </desc>
+
+  <defs>
+    <style>
+      :root {
+        --vibo-agent: #1557FF;
+        --vibo-skill: #FF642F;
+        --vibo-result: #171D27;
+      }
+    </style>
+
+    <!--
+      The transparent hub and three channels are constructed as negative
+      space, so the mark works on white, warm-white, and colored surfaces.
+    -->
+    <mask id="modular-separation" maskUnits="userSpaceOnUse" x="0" y="0" width="768" height="768">
+      <rect width="768" height="768" fill="white"/>
+      <circle cx="384" cy="388" r="40" fill="black"/>
+      <path d="M384 388 L384 292" stroke="black" stroke-width="24" stroke-linecap="round"/>
+      <path d="M384 388 L286 447" stroke="black" stroke-width="24" stroke-linecap="round"/>
+      <path d="M384 388 L482 447" stroke="black" stroke-width="24" stroke-linecap="round"/>
+    </mask>
+  </defs>
+
+  <g mask="url(#modular-separation)">
+    <!-- Agent / infrastructure module -->
+    <path
+      d="M143 116
+         H241
+         C255 116 266 123 273 136
+         L384 347
+         V389
+         L258 435
+         C247 439 236 435 230 425
+         L104 176
+         C97 162 99 147 108 135
+         C116 123 129 116 143 116
+         Z"
+      fill="#1557FF"
+    />
+
+    <!-- Reusable skill / action module -->
+    <path
+      d="M625 116
+         H527
+         C513 116 502 123 495 136
+         L384 347
+         V389
+         L510 435
+         C521 439 532 435 538 425
+         L664 176
+         C671 162 669 147 660 135
+         C652 123 639 116 625 116
+         Z"
+      fill="#FF642F"
+    />
+
+    <!-- Assembled result module -->
+    <path
+      d="M384 388
+         L508 455
+         C520 461 524 473 518 485
+         L433 627
+         C427 638 417 643 405 643
+         H363
+         C351 643 341 638 335 627
+         L250 485
+         C244 473 248 461 260 455
+         L384 388
+         Z"
+      fill="#171D27"
+    />
+  </g>
+</svg>

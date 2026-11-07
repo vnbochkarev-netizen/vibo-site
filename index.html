@@ -65,7 +65,15 @@
     padding:32px;display:grid;place-items:center;min-height:380px}
   .mark-stage .caption{position:absolute;bottom:18px;left:20px;font-size:12px;
     font-family:"IBM Plex Mono",monospace;color:var(--muted)}
-  .mark-stage svg{width:100%;max-width:340px;height:auto}
+  .mark-stage .mark{width:100%;max-width:320px;height:auto;display:block}
+  .route{display:grid;gap:0;width:100%;max-width:300px}
+  .r-node{border:1px solid var(--border);padding:16px 18px}
+  .r-node b{display:block;font-size:16px;font-weight:600}
+  .r-node span{font-size:13px;color:var(--muted)}
+  .r-node.agent{background:var(--blue-surface);border-color:#D3E0FF}
+  .r-node.skill{background:var(--peach-surface);border-color:#FFD8C8}
+  .r-node.result{background:var(--pure-white)}
+  .r-line{height:26px;width:1px;background:var(--border);margin-left:28px}
 
   /* module legend under the mark */
   .legend{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:1px}
@@ -125,12 +133,11 @@
   /* one orchestrated entrance: the mark assembles, then the page settles */
   @keyframes piece-in{from{opacity:0;transform:translateY(-10px) scale(.96)}to{opacity:1;transform:none}}
   @keyframes core-in{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:none}}
-  .mark-stage svg .piece{animation:piece-in .5s cubic-bezier(.2,.7,.3,1) both}
-  .mark-stage svg .piece-2{animation-delay:.12s}
-  .mark-stage svg .piece-3{animation-delay:.24s}
-  .mark-stage svg .core{animation:core-in .4s .36s cubic-bezier(.2,.7,.3,1) both}
+  .r-node{animation:piece-in .45s cubic-bezier(.2,.7,.3,1) both}
+  .r-node.skill{animation-delay:.1s}
+  .r-node.result{animation-delay:.2s}
   @media (prefers-reduced-motion: reduce){
-    .mark-stage svg .piece,.mark-stage svg .core{animation:none}
+    .r-node{animation:none}
     html{scroll-behavior:auto}
   }
 
@@ -152,12 +159,7 @@
 <header>
   <div class="wrap nav">
     <a class="brand" href="/" aria-label="ViBo home">
-      <svg viewBox="0 0 32 32" aria-hidden="true">
-        <rect x="10.2" y="3.4" width="5.6" height="11.6" rx="1" fill="#1557FF" transform="rotate(-33 13 9.2)"/>
-        <rect x="16.2" y="3.4" width="5.6" height="11.6" rx="1" fill="#FF642F" transform="rotate(33 19 9.2)"/>
-        <rect x="13.2" y="17.2" width="5.6" height="11.4" rx="1" fill="#171D27"/>
-        <circle cx="16" cy="15.6" r="2.9" fill="#FAF9F6" stroke="#171D27" stroke-width="1.4"/>
-      </svg>
+      <img src="vibo-mark.svg" alt="" width="30" height="30">
       <span class="wordmark">ViBo</span>
     </a>
     <nav>
@@ -188,28 +190,7 @@
 
     <div>
       <div class="mark-stage">
-        <svg viewBox="0 0 240 240" role="img" aria-label="ViBo mark: three modules meeting at a central node">
-          <!-- agent module -->
-          <g class="piece piece-1">
-            <rect x="60" y="34" width="30" height="66" rx="3" fill="#1557FF" transform="rotate(-33 75 67)"/>
-            <text x="18" y="52" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5E6878">agent</text>
-            <line x1="30" y1="58" x2="52" y2="72" stroke="#DFE4EC"/>
-          </g>
-          <!-- skill module -->
-          <g class="piece piece-2">
-            <rect x="150" y="34" width="30" height="66" rx="3" fill="#FF642F" transform="rotate(33 165 67)"/>
-            <text x="168" y="52" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5E6878">skill</text>
-            <line x1="188" y1="58" x2="186" y2="72" stroke="#DFE4EC"/>
-          </g>
-          <!-- result module -->
-          <g class="piece piece-3">
-            <rect x="105" y="140" width="30" height="66" rx="3" fill="#171D27"/>
-            <text x="112" y="226" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5E6878">result</text>
-          </g>
-          <!-- connection node -->
-          <circle class="core" cx="120" cy="118" r="11" fill="#FAF9F6" stroke="#171D27" stroke-width="2.5"/>
-          <circle class="core" cx="120" cy="118" r="3.4" fill="#1557FF"/>
-        </svg>
+        <img class="mark" src="vibo-mark.svg" alt="ViBo mark: three modules meeting at a central node" width="768" height="768">
         <span class="caption">one node, three modules</span>
       </div>
       <div class="legend">
